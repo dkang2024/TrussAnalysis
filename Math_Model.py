@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-#Functions 
+#Functions
 
 #Create the JSON File
 def createjson():
