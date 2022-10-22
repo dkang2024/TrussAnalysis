@@ -1199,8 +1199,7 @@ def main():
 
     localconversions, localstiffnesses = [], []
     Create_Element_Matrix(E)
-    function_receive = Utilize_Element_Matrix(E)
-    ranelementmatrix, elementlist = function_receive[0], function_receive[1]
+    ranelementmatrix, elementlist = Utilize_Element_Matrix(E)
 
     for elementid in E[:, 0]:
         
@@ -1221,8 +1220,7 @@ def main():
         globalstiffnessmatrix = user_fig.assemblingglobalstiffness(nodetuple, globalstiffnessmatrix, localstiffness)
         localconversions.append(Conversion_Matrix)
     
-    function_receive = user_fig.assembleglobalforce()
-    shavedglobalforcematrix, rlist = function_receive[0], function_receive[1]
+    shavedglobalforcematrix, rlist = user_fig.assembleglobalforce()
     
     shavedstiffness = removepartsglobalstiffness(globalstiffnessmatrix, rlist)
     shaveddisplacements = finddisplacements(shavedstiffness, shavedglobalforcematrix)
