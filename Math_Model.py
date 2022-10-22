@@ -59,11 +59,11 @@ def findingcomponents(elementname, thingtofind):
     while True:
         
         try:
-            returning = float(input("What's this element(element " + elementname + ")'s " + thingtofind + "? "))
+            returning = float(input(f"What's this element(element {elementname})'s {thingtofind}? "))
             return returning
         
         except:
-            print("You didn't enter a valid number for the element's " + thingtofind)
+            print(f"You didn't enter a valid number for the element's {thingtofind}!")
 
 #Function for Establishing the Local Stiffness Matrix for the Specific Element
 def stiffness(EA, L):
@@ -122,7 +122,7 @@ def Check_Node_Duplicates(value_1, value_2, value_3, array, what_check, iter):
         
         if [i, value_1, value_2, value_3] in array:
             
-            print("This " + what_check + " is something that you've already entered! Deleting this " + what_check + "...")
+            print(f"This {what_check} is something that you've already entered! Deleting this {what_check}...")
             return False
     
     return True
@@ -134,7 +134,7 @@ def Check_Element_Duplicates(value_1, value_2, array, what_check, iter):
         
         if [i, value_1, value_2] in array:
             
-            print("This " + what_check + " is something that you've already entered! Deleting this " + what_check + "...")
+            print(f"This {what_check} is something that you've already entered! Deleting this {what_check}...")
             return False
     
     return True
@@ -144,7 +144,7 @@ def Check_Reaction_Duplicates(node, array, what_check):
     
     if node in array[:][0]:
         
-        print("This " + what_check + " is something that you've already entered! Deleting this " + what_check + "...")
+        print(f"This {what_check} is something that you've already entered! Deleting this {what_check}...")
         return False
     
     return True
@@ -158,7 +158,7 @@ def Init_Array(Array_Name):
         
         try:
             
-            array_num = int(input("How many " + Array_Name + " do you have? "))
+            array_num = int(input(f"How many {Array_Name} do you have? "))
             array_input = True
         
         except:
@@ -172,7 +172,7 @@ def DOF(direction):
     
     while True:
         
-        spec_DOF = input("Is there a reaction force(aka is the node not able to move) in the " + direction + " direction? (y for not able to move/n for able to move) ")
+        spec_DOF = input(f"Is there a reaction force(aka is the node not able to move) in the {direction} direction? (y for not able to move/n for able to move) ")
         
         if spec_DOF.lower() == "y":
             
@@ -223,7 +223,7 @@ def Matrix_Pull(whatpull):
     
     while True:
         
-        s_pull = input("Do you want to use a matrix of " + whatpull + " that you previously stored? (y/n) ")
+        s_pull = input(f"Do you want to use a matrix of {whatpull} that you previously stored? (y/n) ")
         
         if s_pull.lower() == "y":
             
@@ -271,7 +271,7 @@ def Create_Element_Matrix(E):
 
                     try:
 
-                        material = float(input("What's this element's(element " + str(elementid) + ") Young's Modulus multiplied by Cross-Sectional Area? "))
+                        material = float(input(f"What's this element's(element {str(elementid)}) Young's Modulus multiplied by Cross-Sectional Area? "))
                         materials_list.append(material)
                         valid_material = True
                     
@@ -348,14 +348,14 @@ def Find_Values(What_To_Find, Acting_Where, should_check, exist_check, v):
                 
         try:
             
-            x = float(input("Enter your " + What_To_Find + "'s(" + What_To_Find + " " + str(v) + ") " + Acting_Where + ": "))
+            x = float(input(f"Enter your {What_To_Find}'s({What_To_Find} {str(v)}) {Acting_Where}: "))
             
             if should_check == True:
                 
                 in_array = np.flatnonzero(x == exist_check)
                 
                 if len(in_array) == 0:
-                    print("You entered a " + Acting_Where + " that does not exist!")
+                    print(f"You entered a {Acting_Where} that does not exist!")
                 
                 else:
                     return x
@@ -364,7 +364,7 @@ def Find_Values(What_To_Find, Acting_Where, should_check, exist_check, v):
                 return x
         
         except:
-            print("You can only enter a valid number that represents your " + Acting_Where + "!")
+            print(f"You can only enter a valid number that represents your {Acting_Where}!")
 
 def main():
     createjson()
