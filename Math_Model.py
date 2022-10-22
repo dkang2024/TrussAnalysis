@@ -38,10 +38,7 @@ def roundingforgraphing(number):
 #Function for finding the Node IDs on an element
 def findnodes(elementid, E):
     
-    node1 = E[int(elementid) - 1, 1]
-    node2 = E[int(elementid) - 1, 2]
-    
-    return (node1, node2)
+    return (E[int(elementid) - 1, 1], E[int(elementid) - 1, 2])
 
 #Function for checking if the structure is two-dimensional
 def checkif2d(N):
