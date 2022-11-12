@@ -72,8 +72,8 @@ def stiffness(EA, L):
 
 #Converting the Local Stiffness Matrix Into a Global Stiffness Matrix
 def converttoglobalstiffness(Conversion_Matrix, stiffnessmatrix):
-    
-    return np.matmul(np.matmul(np.transpose(Conversion_Matrix), stiffnessmatrix), Conversion_Matrix)
+
+    return np.round(np.matmul(np.matmul(np.transpose(Conversion_Matrix), stiffnessmatrix), Conversion_Matrix), 3)
 
 #Shaving Off Parts of the Global Stiffness Matrix
 def removepartsglobalstiffness(globalmatrix, reactionlist):
@@ -1216,7 +1216,7 @@ def main():
         localstiffness = converttoglobalstiffness(Conversion_Matrix, localstiffness)
         globalstiffnessmatrix = user_fig.assemblingglobalstiffness(nodetuple, globalstiffnessmatrix, localstiffness)
         localconversions.append(Conversion_Matrix)
-    
+
     shavedglobalforcematrix, rlist = user_fig.assembleglobalforce()
     
     shavedstiffness = removepartsglobalstiffness(globalstiffnessmatrix, rlist)
@@ -1261,7 +1261,7 @@ def main():
         ax = plt.axes(projection = "3d")
         function_receive = user_fig.findplotlimit()
         plt.xlim(function_receive[1][0], function_receive[0][0])
-        plt.xlim(function_receive[1][1], function_receive[0][1])
+        plt.ylim(function_receive[1][1], function_receive[0][1])
         ax.set_zlim(function_receive[1][2], function_receive[0][2])
         
         user_fig.pltnodematrix(user_fig.displacednodes(globaldisplacement))
