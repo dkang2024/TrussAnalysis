@@ -756,7 +756,7 @@ def main():
                     total_rotation = math.degrees(math.atan2(yforcemag, xforcemag))
                     total_mag = math.sqrt(totalxforce**2 + totalyforce**2)
 
-                    plt.text(xposition, yposition, str(roundingforgraphing(total_mag)) + " kN", fontsize = "large", ha = "center", va = "bottom", transform_rotates_text = True, rotation = total_rotation, rotation_mode = "anchor")
+                    plt.text(xposition, yposition, str(roundingforgraphing(total_mag)) + " N", fontsize = "large", ha = "center", va = "bottom", transform_rotates_text = True, rotation = total_rotation, rotation_mode = "anchor")
 
                 plt.quiver(xlist, ylist, xmagnitude, ymagnitude, angles='xy', scale_units='xy', scale = 1, color = "y")
             
@@ -1096,7 +1096,7 @@ def main():
                         position += mag / 2
                     zdir = (xmag, ymag, zmag)
 
-                    ax.text(xposition, yposition, zposition, str(roundingforgraphing(plotmag)) + " kN", zdir, fontsize = "small")
+                    ax.text(xposition, yposition, zposition, str(roundingforgraphing(plotmag)) + " N", zdir, fontsize = "small")
                        
                 plt.quiver(xlist, ylist, zlist, xmagnitude, ymagnitude, zmagnitude, arrow_length_ratio = 1, color = "y")
     
