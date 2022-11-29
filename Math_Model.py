@@ -923,7 +923,6 @@ def main():
                         templisty.append(self.forces_array[index, 2])
                         templistz.append(self.forces_array[index, 3])
 
-                    
                     reaction_index = np.flatnonzero(node == self.reaction_array[:, 0])
                     temp_list_tuple = (templistx, templisty, templistz)
 
