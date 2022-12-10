@@ -1179,11 +1179,11 @@ def main():
                     if leftforce < 0:
 
                         ax.text(finalposx, finalposy, finalposz, str(rightforce) + " (t)", (rotatex, rotatey, rotatez), fontsize = "small", ha = "center", va = "bottom")
-                    
+
                     elif leftforce > 0:
 
                         ax.text(finalposx, finalposy, finalposz, str(leftforce) + " (c)", (rotatex, rotatey, rotatez), fontsize = "small", ha = "center", va = "bottom")
-                    
+
                     else:
 
                         ax.text(finalposx, finalposy, finalposz, "0 force member", (rotatex, rotatey, rotatez), fontsize = "small", ha = "center", va = "bottom")
@@ -1238,6 +1238,8 @@ def main():
     print(globalreactions)
     print("This is the global element force matrix: ")
     print(globalelementforces)
+    print("This is the maximum of the global displacement matrix: ")
+    print(max([x[0] for x in globaldisplacement]))
 
     #Plotting
 
