@@ -1232,14 +1232,13 @@ def main():
         globalelementforces.append(findelementforce(elementdisplacement, localstiffnesses[int(elementid) - 1], localconversions[int(elementid) - 1]))
     
     globalelementforces = np.atleast_2d(np.array(globalelementforces))
-    print("This is the global displacement matrix: ")
-    print(globaldisplacement)
-    print("This is the global reaction matrix: ")
-    print(globalreactions)
-    print("This is the global element force matrix: ")
-    print(globalelementforces)
-    print("This is the maximum of the global displacement matrix: ")
-    print(max([x[0] for x in globaldisplacement]))
+    print(f"This is the global displacement matrix: \n{globaldisplacement}")
+    print(f"This is the global reaction matrix: \n{globalreactions}")
+    print(f"This is the global element force matrix: \n{globalelementforces}")
+    print(f"This is the maximum of the global displacement matrix: \n{max([abs(x[0]) for x in globaldisplacement])}")
+    print(f"This is the maximum of the global element force matrix: \n{max([abs(x[0]) for x in globalelementforces])}")
+    print(f"This is the average displacement: \n{sum([abs(x[0]) for x in globaldisplacement]) / len([abs(x[0]) for x in globaldisplacement])}")
+    print(f"This is the average force: \n{sum([abs(x[0]) for x in globalelementforces]) / len([abs(x[0]) for x in globalelementforces])}")
 
     #Plotting
 
